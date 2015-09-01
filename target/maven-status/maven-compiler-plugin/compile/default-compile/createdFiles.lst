@@ -1,0 +1,8 @@
+com\tan\dkp\PrevMapper.class
+com\tan\dkp\PrevReducer.class
+com\tan\dkp\Tag.class
+com\tan\dkp\CoefMapper.class
+com\tan\dkp\CalcMapper.class
+com\tan\dkp\CoefReducer.class
+com\tan\dkp\CodeComparator.class
+com\tan\dkp\Driver.class
