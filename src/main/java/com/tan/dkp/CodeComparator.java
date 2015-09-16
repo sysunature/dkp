@@ -21,8 +21,6 @@ public class CodeComparator extends WritableComparator {
 		Integer bOrg = Integer.parseInt(kbsp[5]);
 		Integer aSec = Integer.parseInt(kasp[6]);// 专业编码
 		Integer bSec = Integer.parseInt(kbsp[6]);
-		Long aCode = Long.parseLong(kasp[4]);// 排名组
-		Long bCode = Long.parseLong(kbsp[4]);
 		Double aSco = Double.parseDouble(kasp[7]);// 综合成绩
 		Double bSco = Double.parseDouble(kbsp[7]);
 		if (aOrg < bOrg) {
@@ -35,21 +33,14 @@ public class CodeComparator extends WritableComparator {
 			} else if (aSec > bSec) {
 				return 1;
 			} else {
-				if (aCode < bCode) {
-					return -1;
-				} else if (aCode > bCode) {
+				if (aSco < bSco) {
 					return 1;
+				} else if (aSco > bSco) {
+					return -1;
 				} else {
-					if (aSco < bSco) {
-						return 1;
-					} else if (aSco > bSco) {
-						return -1;
-					} else {
-						return 0;
-					}
+					return 0;
 				}
 			}
 		}
-
 	}
 }
