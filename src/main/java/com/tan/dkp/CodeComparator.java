@@ -23,6 +23,8 @@ public class CodeComparator extends WritableComparator {
 		Integer bSec = Integer.parseInt(kbsp[6]);
 		Double aSco = Double.parseDouble(kasp[7]);// 综合成绩
 		Double bSco = Double.parseDouble(kbsp[7]);
+		Integer aGrad = kasp[3].equals("Y") ? 1 : 0;
+		Integer bGrad = kbsp[3].equals("Y") ? 1 : 0;
 		if (aOrg < bOrg) {
 			return -1;
 		} else if (aOrg > bOrg) {
@@ -33,12 +35,17 @@ public class CodeComparator extends WritableComparator {
 			} else if (aSec > bSec) {
 				return 1;
 			} else {
-				if (aSco < bSco) {
+				if (aGrad < bGrad) {
 					return 1;
-				} else if (aSco > bSco) {
+				} else if (aGrad > bGrad) {
 					return -1;
 				} else {
-					return 0;
+					if (aSco < bSco) {
+						return 1;
+					} else if (aSco > bSco) {
+						return -1;
+					} else
+						return 0;
 				}
 			}
 		}

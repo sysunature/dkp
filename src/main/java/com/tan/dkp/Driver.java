@@ -88,12 +88,15 @@ public class Driver extends Configured implements Tool {
 		Job job3 = Job.getInstance(conf,
 				"Third Job Calculate ems-centered final score");
 		job3.setJarByClass(Driver.class);
-		job3.setSortComparatorClass(CodeComparator.class);
 		job3.setMapperClass(CalcMapper.class);
+		job3.setReducerClass(CalcReducer.class);
+		job3.setPartitionerClass(CalcPartitioner.class);
+		job3.setGroupingComparatorClass(CalcGrouping.class);
+		job3.setSortComparatorClass(CodeComparator.class);
 		job3.setMapOutputKeyClass(Text.class);
 		job3.setMapOutputValueClass(NullWritable.class);
 		job3.setOutputKeyClass(Text.class);
-		job3.setOutputValueClass(NullWritable.class);
+		job3.setOutputValueClass(Text.class);
 		job3.setInputFormatClass(TextInputFormat.class);
 		job3.setOutputFormatClass(TextOutputFormat.class);
 		FileInputFormat.setInputPaths(job3, new Path(args[1]));
